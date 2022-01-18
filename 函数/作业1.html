@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var num1 = prompt('请输入第一个数');
+  var num2 = prompt('请输入第二个数');
+  var num3 = prompt('请输入你的运算方式，如加，减，乘，除')
+function jg(num1,num2){
+    return[parseFloat(num1) + parseFloat(num2), parseFloat(num1) - parseFloat(num2), parseFloat(num1) * parseFloat(num2), parseFloat(num1) / parseFloat(num2)];
+}
+  var num4 = jg(num1,num2);
+      if (num3 == '加') {
+          alert(num4[0]);
+      } else if (num3 == '减') {
+         alert(num4[1]);
+      } else if (num3 == '乘') {
+          alert(num4[2]);
+      } else if (num3 == '除') {
+          alert(num4[3]);
+      }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(num) {
+        for (var i = 2; i < num; i++) {
+            if (num % i == 0) {
+                return num + '不是质数'
+            }
+        }
+        return num + '是质数'
+    }
+    alert(isPrime(prompt('请输入一个数')));
+
+</script>
+</body>
+</html>

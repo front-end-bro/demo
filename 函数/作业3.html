@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var num1 = prompt('请输入第一个数');
+  var num2 = prompt('请输入第二个数');
+  var num3 = prompt('请输入第三个数');
+function jg(num1,num2,num3){
+    return[num1,num2,num3];
+}
+  var num4 = jg(num1,num2,num3);
+      if (parseFloat(num1) > parseFloat(num2) ,parseFloat(num1) > parseFloat(num3)){
+          alert(num4[0]);
+      }else if (parseFloat(num2) > parseFloat(num1) ,parseFloat(num2) > parseFloat(num3)){
+          alert(num4[1]);
+      }else if (parseFloat(num3) > parseFloat(num1),parseFloat(num3) > parseFloat(num2)){
+          alert(num4[2])
+      }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function shuzu(arr) {
+        var max = arr[0];
+        for (i = 1; i <= arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return(max);
+    }
+
+    console.log(shuzu([1,34,32,33,12,36,24]));
+</script>
+</body>
+</html>
