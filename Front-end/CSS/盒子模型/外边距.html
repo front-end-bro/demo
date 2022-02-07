@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>外边距</title>
+    <style>
+        .a{
+            height: 400px;
+            width: 400px;
+            background: skyblue;
+            margin: 40px;
+            overflow: hidden;
+        }
+        .b{
+            height: 200px;
+            width: 200px;
+            /*外部上下边距30px 水平居中对齐*/
+            /*行内元素或行内块元素水平居中给其父元素添加 text-align:center*/
+            margin: 30px auto;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="a">1
+    <div class="b">2</div></div>
+
+</body>
+</html>
