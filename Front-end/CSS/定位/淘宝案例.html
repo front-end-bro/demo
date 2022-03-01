@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝案例</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .promo{
+            width: 520px;
+            height: 280px;
+            margin:50px auto;
+            border-radius: 15px;
+            position: relative;
+        }
+        img{
+            border-radius: 15px;
+        }
+        .prev,.next{
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            background: rgba(0,0,0, .3);
+            border-radius: 0px 15px 15px 0px;
+        }
+        .prev{
+            left: 0;
+            margin-left: 0px;
+        }
+        .next{
+            border-radius: 15px 0px 0px 15px;
+            right: 0px;
+        }
+        .promo-nav {
+            position: absolute;
+            bottom: 15px;
+            width: 70px;
+            height: 13px;
+            background: rgba(255,255,255, .3);
+            left: 50%;
+            margin-left: -35px;
+            border-radius: 7px;
+        }
+        .promo-nav li{
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            float: left;
+            margin: 3px;
+            border-radius: 4px;
+        }
+        .promo-nav .a{
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+<body>
+    <div class="promo">
+        <img src="img/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg">
+        <a href="#" class="prev">&lt;</a>
+        <a href="#" class="next">&gt;</a>
+        <ul class="promo-nav">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="a"></li>
+            <li></li>
+        </ul>
+        
+    </div>
+    
+</body>
+</html>
