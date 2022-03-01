@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位-有父级定位</title>
+    <style>
+
+        .father{
+            margin: 20px;
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #ffa900;
+        }
+        .son{
+            left:30px ;
+            position: absolute;
+            top: 50px;
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+        }
+        .son2{
+            width: 150px;
+            height: 150px;
+            background-color: #76ff50;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="father">
+        <div class="son">
+            太子
+        </div>
+        <div class="son2">
+            我是二王爷
+        </div>
+    </div>
+
+
+
+</body>
+</html>
