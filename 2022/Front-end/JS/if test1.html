@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if test1</title>
+    <script>
+       var a = prompt("输入成绩：");
+       console.log(a);
+       if (a > 100 || a < 0 || isNaN(a)){
+           document.write("Please try again")
+       }else{
+           if(a == 100){
+               document.write("You can have one car");
+           }else if(a >= 80){
+               document.write("You can have a phone");
+           }else if (60 >= a){
+               document.write("You can have a book");
+           }else{
+               document.write("nothings");
+           }
+       }
+    </script>
+</head>
+<body>
+</body>
+</html>

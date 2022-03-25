@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>取消浮动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .all{
+            margin: 0px auto;
+            width: 500px;
+            background-color: #ff6700;
+            border: #55585a 2px solid;
+        }
+        .a{
+            width: 300px;
+            height: 150px;
+            background-color: #50caff;
+
+        }
+        .b{
+            width: 400px;
+            height: 250px;
+            background-color: #50ff82;
+            float: left;
+        }
+        /*多添加一个盒子清除浮动*/
+        .clean{
+            clear: both ;
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="clean"></div>
+</div>
+</body>
+</html>
