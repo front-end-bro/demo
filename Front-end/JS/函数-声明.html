@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的声明</title>
+    <script>
+        // 因为提前声明了
+        a();
+        function a(){
+            console.log("可以随处使用 已经提前声明")
+        }
+
+
+        //没有提前声明 只能在声明后调用函数
+        var b =function (){
+            console.log("不可再定义前调用 未提前声明")
+        }
+        b();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

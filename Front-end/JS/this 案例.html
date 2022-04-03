@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+    <script>
+        // 定义变量
+        var name = "俺是牛马磊";
+
+        //创建函数 lxl
+        function lxl() {
+            console.log(this.name);
+        }
+
+        // 创建对象lxl1
+        var lxl1 = {
+            name: "刘晓磊",
+            sayName: lxl
+        }
+
+        // 创建对象lxl1
+        var lxl2 = {
+            name: "牛小馁",
+            sayName: lxl
+        }
+
+        // 调用函数
+        lxl();
+        // 调用lxl1对象的方法
+        lxl1.sayName();
+        // 调用lxl2对象的方法
+        lxl2.sayName();
+    </script>
+</head>
+<body>
+</body>
+</html>

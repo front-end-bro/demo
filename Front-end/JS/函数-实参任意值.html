@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实参可以是任意值</title>
+    <script>
+        //计算长方形面积
+        function S(a, b) {
+            return a * b;
+        }
+
+        result = S(5, 10);
+        console.log("长方形面积是：" + result);
+
+
+        //创建一个函数，可以在控制台中输出一个人的信息
+        // 创建一个叫bro的函数 且给一个叫做lxl的形参
+        function bro(lxl) {
+            console.log("俺是" + lxl.name + ",俺" + lxl.age + "岁啦,俺是个" + lxl.gender + "人，俺住在" + lxl.address)
+        }
+
+        // 对象字面量：创建myBro对象 并给予属性和属性值
+        var myBro = {
+            name: "刘晓磊",
+            age: 18,
+            gender: "男",
+            address: "高老庄"
+        };
+        // 调用bro函数 且将myBro这个对象当做实参传给函数中
+        bro(myBro);
+
+
+        //创建fun的函数 给形参a
+        function fun(a) {
+            console.log("a=" + a)
+        }
+        //函数调用函数
+        fun(S(19, 20));
+        //函数调用函数对象
+        fun(S);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
