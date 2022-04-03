@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+    <script>
+
+        // 创建一个构造函数Bro 并给予形参
+        function Bro(name, age, address) {
+            // 因为在构造函数中 this指向创建出来的对象
+            // 例如下面的创建的bro1对象
+            // 这里的this.name 就是 bro1.name
+            this.name = name;
+            this.age = age;
+            this.address = address;
+
+        }
+
+        var bro1 = new Bro("lxl", 18, "光明");
+        console.log(bro1)
+
+        var bro2 = new Bro("aw", 18, "龙岗")
+        console.log(bro2)
+
+        //检查Bro类（函数）中是否创建bro1实例（对象）
+        console.log(bro1 instanceof Bro);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
