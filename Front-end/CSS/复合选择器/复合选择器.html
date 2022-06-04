@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复合选择器</title>
+    <style>
+        /*后代选择器 父元素ul 子元素li*/
+        ul li{ color: pink}
+        .nav li{ color: aqua}
+        #a li{ color: blue}
+        /*子元素选择器 子元素a */
+        div ul li>a{color: darkgreen}
+        /*并集选择器*/
+        #k
+        p,
+        div span{ color: #ff8d00
+        }
+        /*伪类选择器*/
+        /*a:link 选择所有未被访问的链接*/
+        /*a:visited 选择所有已被访问过的链接*/
+        /*a:hover 选择鼠标指针位于其上的链接*/
+        /*a:active 选择活动链接（鼠标按下链接的时候）*/
+        #w a:link{color: #50ff82
+        }
+        #w a:visited{color: #ff9950
+        }
+        #w a:hover{color: #50caff
+        }
+        #w a:active{color: #ff507f
+        }
+        /*通常写法*/
+        #q a{
+            color: black;
+            text-decoration: none;
+            /*取消下划线*/
+        }
+        #q a:hover
+        {
+            color: #50caff;
+            text-decoration: underline
+            /*出现下划线*/
+        }
+        input:focus{ background-color: yellow;color: red;}
+    </style>
+
+
+</head>
+<body>
+<div>后代选择器
+    <ul>
+        <li>选择器</li>
+    </ul>
+    <ol>
+        <li>选择器</li>
+    </ol>
+    <ul class="nav">
+        <li>选择器</li>
+    </ul>
+    <ul id="a">
+        <li>选择器</li>
+    </ul>
+</div>
+<hr>
+<div>子元素选择器
+    <ul>
+        <li>
+            <a href="复合选择器.html">子</a>
+            <p>
+                <a href="复合选择器.html">孙</a>
+            </p>
+        </li>
+    </ul>
+</div>
+<hr>
+<div id="k">
+    <div>并集选择器
+        <span>kjk</span>
+    </div>
+    <p>aa</p>
+    <a href="#">a</a>
+</div>
+<hr>
+<div id="w">并集选择器
+    <a href="#">链接喔</a>
+    <a href="www.xxxxx.com">can</a>
+</div>
+通常写法:
+<div id="q"><a href="#">通常学法</a></div>
+<div>focus伪类选择器: <br>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+</div>
+</body>
+</html>
