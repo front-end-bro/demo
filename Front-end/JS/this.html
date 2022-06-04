@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+    <script>
+
+        function ywp(){
+            console.log(this);
+        }
+        //以函数的形式调用时 this指向Windows
+        ywp();
+
+        var bro={
+            name:"牛马磊",
+            and:ywp,
+        }
+        //以方法的形式调用时 this指向对象（谁调用方法 方法里的this就指向谁）
+        bro.and();
+
+        // 当以构造函数的形式调用时 this就是新创建的对象
+        function Bro(name, age, address) {
+            // 因为在构造函数中 this指向创建出来的对象
+            // 例如下面的创建的bro1对象
+            // 这里的this.name 就是 bro1.name
+            this.name = name;
+            this.age = age;
+            this.address = address;
+
+        }
+
+        var bro1 = new Bro("lxl", 18, "光明");
+        console.log(bro1)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

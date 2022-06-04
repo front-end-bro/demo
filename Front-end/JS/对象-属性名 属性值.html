@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性名 属性值</title>
+    <script>
+        var bro = new Object();
+        //对象.属性名 = 属性值;
+        bro.name = "mn";
+        bro.age = 18;
+
+        console.log(bro.age);
+
+
+        var bro2 =new Object();
+        //如果用特殊的属性名 就得用[]
+        //对象["属性名"] = 属性值;
+        bro2["名字"]=["阿伟"];
+
+        var mensao = "名字";
+        console.log(bro2["名字"]);
+        console.log(bro2[mensao]);
+
+        //in运算符 检查对象是否含有属性 有则返回ture 无责false
+        console.log("father choi" in bro);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
