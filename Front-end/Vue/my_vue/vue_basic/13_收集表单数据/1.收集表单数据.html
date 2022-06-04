@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收集表单数据</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--    .prevent 阻止表单提交默认跳转行为-->
+    <form @submit.prevent="demo">
+        <!-- v-model.trim 去掉文本框内前后空格-->
+        账号: <input type="text" v-model.trim="userInfo.acconnt"> <br>
+        密码: <input type="password" v-model="userInfo.password"> <br>
+        <!-- v-model.number数据转换成数字类型
+        type="number" 表格框只能输入数字类型-->
+        年龄: <input type="number" v-model.number="userInfo.age"> <br>
+        性别:
+        男:<input name="sex" type="radio" v-model="userInfo.sex" value="male">
+        女:<input name="sex" type="radio" v-model="userInfo.sex" value="female"><br>
+        爱好:
+        <input type="checkbox" v-model="userInfo.hobbys" value="study"> 学习
+        <input type="checkbox" v-model="userInfo.hobbys" value="game"> 打游戏
+        <input type="checkbox" v-model="userInfo.hobbys" value="eat">吃饭
+        <br>
+        所属地区:
+        <select v-model="userInfo.city">
+            <option value="">请选择校区</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="shenzhen">深圳</option>
+            <option value="guangzhou">广州</option>
+        </select><br>
+        其他信息:
+        <!-- v-model.lazy当此文本框失去焦点时 才进行数据代理-->
+        <textarea v-model.lazy="userInfo.other"></textarea><br>
+        <input type="checkbox" v-model="userInfo.agree"> 阅读并接受 <a href="#">《用户协议》</a>
+        <br>
+        <button>提交</button>
+    </form>
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: "#root",
+        data: {
+            userInfo: {
+                acconnt: '',
+                password: '',
+                age: '',
+                sex: 'female',
+                hobbys: [],
+                city: 'shenzhen',
+                other: '',
+                agree: ''
+            }
+        },
+        methods: {
+            demo() {
+                //以JSON格式输出数据
+                console.log(JSON.stringify(this.userInfo))
+            }
+        }
+
+    })
+
+</script>
+</body>
+</html>

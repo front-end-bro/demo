@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>key的原理</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>人员列表(遍历数组)</h2>
+    <ul>
+        <li v-for="p in persons" :key="p.id">
+            {{p.name}}---{{p.age}}
+            <input type="text">
+        </li>
+    </ul>
+    <button @click.once="add">加long</button>
+    <hr>
+
+</div>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#root",
+        data:{
+            persons:[
+                {id:'001',name:'牛马馁',age:'18'},
+                {id:'002',name:'伟子哥',age:'18'},
+                {id:'003',name:'czm',age:'18'}
+            ]
+        },
+        methods:{
+            add(){
+                const p={
+                    id:'004',name:'long',age:'40'
+                }
+                this.persons.push(p)
+                this.persons.unshift(p)
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

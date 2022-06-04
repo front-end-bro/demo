@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定样式</title>
+    <style>
+        .basic {
+            height: 50px;
+            width: 300px;
+            border: solid 1px black;
+            background: none;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+
+        .a {
+            height: 50px;
+            width: 300px;
+            background: #00ff88;
+        }
+
+        .b {
+            height: 50px;
+            width: 300px;
+            background: #00f7ff;
+        }
+
+        .c {
+            height: 50px;
+            width: 300px;
+            background: #ffee4d;
+        }
+
+        .d {
+            color: white;
+        }
+
+        .e {
+            background-color: #000;
+        }
+
+        .f {
+            font-weight: bolder;
+        }
+
+        .n {
+            height: 50px;
+            width: 300px;
+            background: #c1c1c1;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--绑定class样式 字符串写法 适用于：样式的类名不确定，需要动态指定-->
+    <div :class="color" @click="changeColor" class="basic">{{name}}</div>
+    <br><br>
+    <!--绑定class样式 数组写法 适用于：要绑定的样式个数不确定、名字也不确定-->
+    <div :class="classArr" class="basic">{{name}}</div>
+    <br><br>
+    <!--绑定class样式 对象写法 适用于：要绑定的样式个数确定、名字确定，但是要动态决定用不用-->
+    <div :class="classObj" class="basic">{{name}}</div>
+    <br><br>
+    <!--绑定style样式 对象写法-->
+    <div :style="styleObj" class="basic">{{name}}</div>
+    <br><br>
+    <!--绑定style样式 数组写法 样式对象：必须存在-->
+    <div :style="styleArr" class="basic">{{name}}</div>
+    <br><br>
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: '#root',
+        data: {
+            name: '牛小馁',
+            color: 'a',
+            classArr: ['d', 'e', 'f'],
+            classObj:{
+                d:false,
+                e:false
+            },
+            styleObj:{
+                fontSize:40+'px',
+                backgroundColor:'#FFEE4DFF'
+            },
+            styleArr:[
+                {
+                    fontSize:40+'px',
+                    backgroundColor:'#FFEE4DFF'
+                },
+                {
+                    color:"red"
+                }
+            ]
+        },
+        methods: {
+            changeColor() {
+                const arr = ['a', 'b', 'c']
+                this.color = arr[Math.floor(Math.random() * 3)];
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

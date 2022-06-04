@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueComponent</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<!--
+每次调用Vue.extend 返回的都是全新的VueComponent
+VueComponent和vm不一样 VueComponent有的功能vm都有 但是vm和VueComponent不是一个东西
+-->
+<div id="root"><app></app></div>
+<script>
+    Vue.config.productionTip = false;
+    const school = Vue.extend({
+        template:
+            `
+                <div>
+                    <h2>{{schoolName}}</h2>
+                    <button @click="consoleThis">控制台显示this</button>
+                </div>
+            `,
+        data(){
+            return  {
+                schoolName:'SSTI'
+            }
+        },
+        methods:{
+            consoleThis(){
+                // 在组件中的this是组件自身
+                console.log(this)
+            }
+        }
+    })
+
+    const app= Vue.extend({
+        template:
+            `
+                <school></school>
+            `,
+        components:{
+            school
+        }
+    })
+
+    new Vue({
+        el:'#root',
+        components:{
+            app
+        }
+    })
+
+</script>
+</body>
+</html>

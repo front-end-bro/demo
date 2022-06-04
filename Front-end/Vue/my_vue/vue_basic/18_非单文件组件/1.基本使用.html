@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本使用</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--第三步:编写组件标签-->
+    <student></student>
+    <hr>
+    <school></school>
+    <hr>
+    <!--第三步:编写全局组件标签-->
+    <c></c>
+    <hr>
+</div>
+<div id="root2">
+    <!--第三步:编写全局组件标签-->
+    <c></c>
+</div>
+
+<script>
+    Vue.config.productionTip = false;
+    // 第一步:创建student组件
+    var a = Vue.extend({
+        // 编写文件主题
+        template: `
+          <div>
+          <h2>学生姓名:{{ studentName }}</h2>
+          <h2>学生年龄:{{ age }}</h2>
+          </div>
+        `,
+        data() {
+            return {
+                studentName: '牛马馁',
+                age: 18
+            }
+
+        }
+    })
+
+    var b = Vue.extend({
+        // 编写文件主题
+        template: `
+          <div>
+          <h2>学生姓名:{{ studentSchool }}</h2>
+          <h2>学生年龄:{{ address }}</h2>
+          </div>
+        `,
+        data() {
+            return {
+                studentSchool: 'SSTI',
+                address: 'shenZhen'
+            }
+
+        }
+    })
+
+
+    // 创建student组件
+    const c = Vue.extend({
+        template: `
+          <div>
+          <h2>Hello!{{ name }}</h2>
+          </div>
+        `,
+        data() {
+            return {
+                name: 'cccc'
+            }
+
+        }
+    })
+    Vue.component('c', c)//注册组件:全局注册
+    new Vue({// 第二步:注册组件（局部注册）
+        el: '#root',
+        components: {
+            student: a,
+            school: b
+        }
+    })
+
+    new Vue({
+        el: '#root2',
+    })
+
+</script>
+</body>
+</html>

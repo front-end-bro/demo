@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表排序</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>人员列表</h2>
+    <input placeholder="请输入名字" type="text" v-model="keyWord">
+   <button @click="sortType=2">年龄升序</button>
+   <button @click="sortType=1">年龄降序</button>
+   <button @click="sortType=0">原顺序</button>
+    <ul>
+        <li :key="p.key" v-for="p in filPersons">
+            {{p.name}}---{{p.age}}---{{p.sex}}
+        </li>
+    </ul>
+    <hr>
+
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: "#root",
+        data: {
+            keyWord: "",
+            sortType:0,//0原顺序 1降序 2升序
+            persons: [
+                {id: '001', name: '牛马磊', age: '30', sex: 'boy'},
+                {id: '002', name: '伟子哥', age: '18', sex: 'boy'},
+                {id: '003', name: '牛小馁', age: '34', sex: 'boy'},
+                {id: '003', name: '小磊子', age: '99', sex: 'boy'}
+            ],
+        },
+        computed:{
+            filPersons(){
+                //filter它用于把Array的某些元素过滤掉，然后返回剩下的元素
+                    const arr =this.persons.filter((p)=>{
+                    //indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置
+                    //如果字符串中没有 则是负值
+                    return p.name.indexOf(this.keyWord) !==-1
+                })
+                //判断是否需要排序
+                if (this.sortType){
+                    arr.sort((p1,p2)=>{
+                        return  this.sortType === 1 ? p2.age-p1.age : p1.age-p2.age
+                    })
+                }
+                return arr
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

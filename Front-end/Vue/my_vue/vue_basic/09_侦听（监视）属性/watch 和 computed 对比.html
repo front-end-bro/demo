@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch 和 computed 对比</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    姓：<input type="text" v-model=firstName>
+    <br>
+    名：<input type="text" v-model=lastName>
+    <br>
+    全名：<span>{{fullName}}</span>
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el:'#root',
+        data:{
+            firstName:"牛",
+            lastName:"小馁",
+            fullName:"牛-小馁"
+        }
+        ,watch:{
+
+            firstName(val) {
+               setTimeout(()=>{// 箭头函数this指向的是 vm
+                   this.fullName=val+"-"+this.lastName;
+               },1000)
+
+            },
+            lastName(val) {
+                this.fullName=this.firstName+"-"+val;
+            }
+        }
+    })
+</script>
+</body>
+</html>
