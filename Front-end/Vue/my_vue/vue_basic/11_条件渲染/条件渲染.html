@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>当前的n值是：{{n}}</h2>
+    <button @click="n++">点我n+1</button>
+
+    <!--v-show 隐藏dom元素-->
+    <h2 v-show="n===1">试验</h2>
+
+    <!--v-if和template的配合使用 v-if会删除dom元素-->
+    <template v-if="n===1">
+        <h2>牛小馁</h2>
+        <h2>18</h2>
+        <h2>深技师</h2>
+    </template>
+
+
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: '#root',
+        data: {
+            n: 0
+        }
+    })
+</script>
+
+</body>
+</html>

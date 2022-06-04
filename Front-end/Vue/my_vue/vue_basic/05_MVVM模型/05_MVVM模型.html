@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVVM模型</title>
+    <!--M:Model(data中的数据)
+    V:View(模板)
+    VM:ViewModel(Vue实例对象)-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h1>hello,{{name}}</h1> <!--V:View(模板)-->
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({// VM:ViewModel(Vue实例对象)
+        el: '#root',
+        data: {name: 'cow'}//M:Model(data中的数据)
+    })
+</script>
+</body>
+</html>

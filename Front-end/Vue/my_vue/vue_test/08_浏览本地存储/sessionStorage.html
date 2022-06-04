@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sessionStorage(网页关闭全都删除)</title>
+    <button onclick="saveData()">点我保存数据</button>
+    <button onclick="readData()">点我读取数据</button>
+    <button onclick="deleteData()">点我删除msg数据</button>
+    <button onclick="deleteAllData()">清空所有数据</button>
+    <script>
+        let p ={name:'张三',age:18}
+
+        function saveData(){
+            sessionStorage.setItem('msg','hello')
+            sessionStorage.setItem('msg2',666)
+            sessionStorage.setItem('person',JSON.stringify(p))
+        }
+
+        function readData(){
+            console.log(sessionStorage.getItem('msg'))
+            console.log(sessionStorage.getItem('msg2'))
+            console.log(JSON.parse(sessionStorage.getItem('person')))
+        }
+
+        function deleteData(){
+            sessionStorage.removeItem('msg')
+        }
+
+        function deleteAllData(){
+            sessionStorage.clear()
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

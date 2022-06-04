@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更新列表</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>更新列表</h2>
+    <button @click="updateLei">更新牛马磊的信息</button>
+    <ul>
+        <li :key="p.key" v-for="p in persons">
+            {{p.name}}---{{p.age}}---{{p.sex}}
+        </li>
+    </ul>
+    <hr>
+
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: "#root",
+        data: {
+            persons: [
+                {id: '001', name: '牛马磊', age: '30', sex: 'boy'},
+                {id: '002', name: '伟子哥', age: '18', sex: 'boy'},
+                {id: '003', name: '牛小馁', age: '34', sex: 'boy'},
+                {id: '003', name: '小磊子', age: '99', sex: 'boy'}
+            ],
+        },
+        methods:{
+            updateLei(){
+                this.persons.splice(0,1,{id: '001', name: '刘晓磊', age: '18', sex: 'boy'})
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
