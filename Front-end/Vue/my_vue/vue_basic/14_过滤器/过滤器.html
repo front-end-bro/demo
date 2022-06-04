@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>现在是{{date | formatDate}}</h2>
+</div>
+<script>
+    Vue.config.productionTip = false;
+    // 创建一个叫做padDate函数
+    var padDate = function (value) {
+        // 如果传入的值 小于10 则在值之前加0
+        return value < 10 ? '0' + value : value;
+    }
+    new Vue({
+        el: '#root',
+        data: {
+            date: new Date(),
+        },
+        // 过滤器
+        filters: {
+            // 创建一个叫formatDate的函数
+            formatDate(value) {
+                var date = new Date(value);
+                var year = date.getFullYear();
+                var month = padDate(date.getMonth()+1);
+                var day = padDate(date.getDate());
+                var hours=padDate(date.getHours());
+                var minutes=padDate(date.getMinutes());
+                var seconds=padDate(date.getSeconds());
+                return year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds;
+            }
+        },
+        mounted(){
+            // console.log(this);
+            setInterval(()=>{
+                this.date=new Date();
+                // console.log(this);
+            },1000)
+        }
+    })
+</script>
+</body>
+</html>

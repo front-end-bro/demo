@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage(存储在本地)</title>
+    <button onclick="saveData()">点我保存数据</button>
+    <button onclick="readData()">点我读取数据</button>
+    <button onclick="deleteData()">点我删除msg数据</button>
+    <button onclick="deleteAllData()">清空所有数据</button>
+    <script>
+        let p ={name:'张三',age:18}
+
+        function saveData(){
+            localStorage.setItem('msg','hello')
+            localStorage.setItem('msg2',666)
+            localStorage.setItem('person',JSON.stringify(p))
+        }
+
+        function readData(){
+            console.log(localStorage.getItem('msg'))
+            console.log(localStorage.getItem('msg2'))
+            console.log(JSON.parse(localStorage.getItem('person')))
+        }
+
+        function deleteData(){
+            localStorage.removeItem('msg')
+        }
+
+        function deleteAllData(){
+            localStorage.clear()
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据绑定</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="a">
+    <!--    普通写法-->
+    <!--    <input type="text" v-bind:value="name"><br>-->
+    <!--    <input type="text" v-model:value="name"><br>-->
+
+    <!--    简写-->
+    单项数据绑定：数据只能从data流向页面<br>
+    <input type="text" :value="name"><br>
+    --------------<br>
+    双向数据绑定：数据能从data流向页面，也能从页面流向data<br>
+    <input type="text" v-model="name"><br>
+</div>
+
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: "#a",
+        data: {name: "牛小馁"}
+    })
+</script>
+</body>
+</html>

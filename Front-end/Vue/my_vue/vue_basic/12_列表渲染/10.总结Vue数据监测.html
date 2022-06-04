@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>总结Vue数据监测</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h1>学生信息</h1>
+    <button @click="student.age++">年龄加1岁</button>
+    <button @click="addSex">添加性别属性，默认值为：男</button>
+    <button @click="student.sex='未知'">修改性别属性，为：未知</button>
+    <button @click="addFriends">在列表首位添加一个朋友</button>
+    <button @click="updateFirstFriendsName">在列表首位修改一个朋友为牛马馁</button>
+    <button @click="addHobby">添加一个爱好</button>
+    <button @click="updateHobby">修改第一个爱好为：开车</button>
+    <button @click="removeStudy">过滤学习</button>
+
+    <h3>姓名：{{student.name}}</h3>
+    <h3>年龄：{{student.age}}</h3>
+    <h3 v-if="student.sex">性别：{{student.sex}}</h3>
+    <h3>爱好：</h3>
+    <ul>
+        <li :key="h.key" v-for="h in student.hobbys ">
+            {{h}}
+        </li>
+    </ul>
+    <h3>朋友们：</h3>
+    <ul>
+        <li :key="f.key" v-for="f in student.friends ">
+            {{f.name}}---{{f.age}}
+        </li>
+    </ul>
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: "#root",
+        data: {
+            student: {
+                name: '牛小馁',
+                age: 18,
+                hobbys: ['内卷', '忽悠', '超级内卷','学习'],
+                friends: [
+                    {name: '蔡泽铭', age: 18},
+                    {name: '郑嘉伟', age: 18}
+                ]
+            }
+
+        },
+        methods:{
+            addSex(){
+               Vue.set(this.student,'sex',"男")
+            },
+            addFriends(){
+                this.student.friends.unshift({name:'牛小馁',age:'18'})
+            },
+            updateFirstFriendsName(){
+                this.student.friends[0].name="牛马馁"
+            },
+            addHobby(){
+                this.student.hobbys.push('学习')
+            },
+            updateHobby(){
+                // 修改数组第一个为开车
+                Vue.set(this.student.hobbys,0,'开车')
+            },
+            removeStudy(){
+                this.student.hobbys=this.student.hobbys.filter((h)=>{
+                    return h !=='学习'
+                })
+            }
+
+
+        }
+    })
+</script>
+</body>
+</html>

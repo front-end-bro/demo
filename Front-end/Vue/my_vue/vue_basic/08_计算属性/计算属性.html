@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    姓：<input type="text" v-model=firstName>
+    <br>
+    名：<input type="text" v-model=lastName>
+    <br>
+    全名：<input type="text" v-model=fullName>
+
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: '#root',
+        data: {
+            firstName: "牛",
+            lastName: "小馁"
+
+        }
+        ,
+        computed: {
+            fullName: {
+                get() {
+                    console.log(this.firstName + "-" + this.lastName);
+                    return this.firstName + "-" + this.lastName;
+                },
+                set(value) {
+                    const arr = value.split('-')//利用'-'将内容分成两个数组
+                    this.firstName = arr[0]
+                    this.lastName = arr[1]
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

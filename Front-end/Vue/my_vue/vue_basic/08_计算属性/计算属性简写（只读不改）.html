@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    姓：<input type="text" v-model=firstName>
+    <br>
+    名：<input type="text" v-model=lastName>
+    <br>
+    全名：<input type="text" v-model=fullName>
+
+</div>
+<script>
+    Vue.config.productionTip = false;
+    new Vue({
+        el: '#root',
+        data: {
+            firstName: "牛",
+            lastName: "小馁"
+
+        }
+        ,
+        computed: {
+            fullName() {
+                console.log(this.firstName + "-" + this.lastName);
+                return this.firstName + "-" + this.lastName;
+            }
+        }
+    })
+</script>
+</body>
+</html>
