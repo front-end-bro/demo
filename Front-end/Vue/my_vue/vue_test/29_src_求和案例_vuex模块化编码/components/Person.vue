@@ -1,0 +1,57 @@
+<template>
+  <div>
+    <h1>人员列表</h1>
+    <h3 style="color: red">Count组件的总和为：{{ sum }}</h3>
+    <h3>列表中第一个人的名字是：{{ firstPersonName }}</h3>
+    <input type="text" placeholder="请输入名字" v-model="name">
+    <button @click="add">添加</button>
+    <button @click="addA">添加一个姓a的人</button>
+    <button @click="addPersonServer">添加一个人，名字随机</button>
+    <ul>
+      <li v-for="p in personList" :key="p.id">{{ p.name }}</li>
+    </ul>
+  </div>
+</template>
+<script>
+import {nanoid} from "nanoid";
+
+export default {
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "Person",
+  data() {
+    return {
+      name: ''
+    }
+  },
+  computed: {
+    personList() {
+      return this.$store.state.personAbout.personList
+    },
+    sum() {
+      return this.$store.state.countAbout.sum
+    },
+    firstPersonName() {
+      return this.$store.getters['personAbout/firstPersonName']
+    }
+  },
+  methods: {
+    add() {
+      const PersonObj = {id: nanoid(), name: this.name}
+      this.$store.commit('personAbout/ADD_PERSON', PersonObj)
+      this.name = ''//清空输入框
+    },
+    addA() {
+      const personObj = {id: nanoid(), name: this.name}
+      this.$store.dispatch('personAbout/addPersonA', personObj)
+      this.name = ''
+    },
+    addPersonServer() {
+      this.$store.dispatch('personAbout/addPersonServer')
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
